@@ -2,6 +2,7 @@ package com.app.premom.entity;
 
 import com.app.premom.BaseTimeEntity;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
@@ -15,7 +16,16 @@ public class Diary extends BaseTimeEntity {
     private String contents;
 
     @Column(nullable = false)
-    private String author;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User author;
+
+
+    @Builder
+    public Diary(String contents, User user){
+        this.contents = contents;
+        this.author = user;
+    }
 
 
 }

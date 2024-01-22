@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Entity
 @NoArgsConstructor
@@ -31,6 +34,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "ROLE", nullable = false)
     private Roles role;
+
+    @OneToMany(mappedBy = "author",  cascade = CascadeType.PERSIST)
+    private List<Diary> diaryList = new ArrayList<>();
+
 
     //oauth2
     private String provider;
