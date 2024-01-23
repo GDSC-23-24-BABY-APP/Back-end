@@ -34,6 +34,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "ROLE", nullable = false)
     private Roles role;
+    private FamilyType familyType;
+    private String gender;
+    private String birthYear;
+    private String ageRange;
+    private String phoneNumber;
 
     @OneToMany(mappedBy = "author",  cascade = CascadeType.PERSIST)
     private List<Diary> diaryList = new ArrayList<>();
@@ -44,7 +49,7 @@ public class User {
     private String providerId;
 
     @Builder
-    public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin) {
+    public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin, FamilyType familyType, String gender, String ageRange, String birthYear, String phoneNumber) {
         this.memberId = userId;
         this.email = email;
         this.username = username;
@@ -56,6 +61,11 @@ public class User {
         this.height = height;
         this.role = role;
         this.isSocialLogin = isSocialLogin;
+        this.familyType = familyType;
+        this.gender = gender;
+        this.ageRange = ageRange;
+        this.birthYear = birthYear;
+        this.phoneNumber = phoneNumber;
     }
 
 

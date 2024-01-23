@@ -9,11 +9,9 @@ class JasyptConfigTest {
 
     @Test
     void jasypt() {
-        String clientId = "618308615209-hc0oc3h414p8rhv1uou8lfmavmmod5b3.apps.googleusercontent.com";
-        String clientSecret = "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";
 
-        System.out.printf("%s -> %s", clientId, jasyptEncoding(clientId));
-        System.out.printf("%s -> %s", clientSecret, jasyptEncoding(clientSecret));
+//        System.out.printf("%s -> %s", clientId, jasyptEncoding(clientId));
+//        System.out.printf("%s -> %s", clientSecret, jasyptEncoding(clientSecret));
 
 
 
