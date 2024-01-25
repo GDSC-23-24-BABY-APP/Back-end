@@ -5,6 +5,10 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+H2
+src/main/resources/application.yml
+src/test/java/com/app/premom/config
+
 ### STS ###
 .apt_generated
 .classpath
