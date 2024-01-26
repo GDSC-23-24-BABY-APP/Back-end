@@ -3,6 +3,7 @@ package com.app.premom.controller;
 import com.app.premom.dto.BabyFamilySaveDto;
 import com.app.premom.dto.UserInfoUpdateDto;
 import com.app.premom.entity.User;
+import com.app.premom.service.FamilyService;
 import com.app.premom.service.LoginService;
 import com.app.premom.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     private final LoginService loginService;
     private final UserService userService;
+    private final FamilyService familyService;
 
     /**
      * 회원 정보 update
@@ -37,7 +39,8 @@ public class UserController {
      * @return BabyFamilyId
      */
     @PostMapping("/family/create")
-    public Long createBabyFamily(@RequestBody BabyFamilySaveDto dto) {
-
+    public String createBabyFamily(Authentication auth, @RequestBody BabyFamilySaveDto dto) {
+        User user = loginService.getLoginUserByLoginId(auth.getName());
+        return familyService.save(user,dto);
     }
 }

@@ -1,5 +1,6 @@
 package com.app.premom.service;
 
+import com.app.premom.dto.BabyFamilySaveDto;
 import com.app.premom.entity.BabyFamily;
 import com.app.premom.entity.User;
 import com.app.premom.repository.FamilyRepository;
@@ -13,6 +14,23 @@ import org.springframework.transaction.annotation.Transactional;
 public class FamilyService {
 
     private final FamilyRepository familyRepository;
+
+    /**
+     * familyType이 mom인 사용자가 가족(아기) 정보 생성
+     * @param user
+     * @param dto
+     * @return
+     */
+    public String save(User user, BabyFamilySaveDto dto) {
+        if (user.getFamilyType() == "mom") {
+            user.updateFamily(dto.toEntity());
+            return user.getFamily().getJoinCode();
+        }
+
+        else {
+            return "mom 인 user만 아기 정보를 생성할 수 있습니다.";
+        }
+    }
 
     // 회원의 가족 추가
     public Long joinFamily(User user, String code) {
