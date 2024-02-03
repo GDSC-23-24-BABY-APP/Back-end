@@ -46,6 +46,13 @@ spring:
         #  show_sql: true
         format_sql: true
         use_sql_comments: true # sql 과 함께 jpql 주석처리되어  콘솔창에 출력
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: classpath:tobemom-app-77a7ec138a73.json
+        project-id: tobemom-app
+        bucket: tobemom-bucket
 
 jwt:
   header: Authorization
