@@ -22,5 +22,4 @@ public class DiarySaveRequestDto {
                 .user(user).build();
     }
 
-
 }

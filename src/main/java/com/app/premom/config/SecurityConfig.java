@@ -2,8 +2,6 @@ package com.app.premom.config;
 
 import com.app.premom.jwt.JwtTokenFilter;
 import com.app.premom.service.LoginService;
-import com.google.cloud.storage.Storage;
-import com.google.cloud.storage.StorageOptions;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -36,10 +34,10 @@ public class SecurityConfig {
 //    }
 //
 
-    @Bean
-    public Storage storage() {
-        return StorageOptions.getDefaultInstance().getService();
-    }
+//    @Bean
+//    public Storage storage() {
+//        return StorageOptions.getDefaultInstance().getService();
+//    }
 
     @Bean
     public BCryptPasswordEncoder encoder() {

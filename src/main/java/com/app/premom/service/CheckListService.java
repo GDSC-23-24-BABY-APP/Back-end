@@ -1,24 +1,31 @@
 package com.app.premom.service;
 
+import com.app.premom.dto.CheckListResponseDto;
+import com.app.premom.dto.CheckListSaveRequestDto;
 import com.app.premom.entity.CheckList;
+import com.app.premom.entity.User;
 import com.app.premom.repository.CheckListRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CheckListService {
 
-    @Autowired
-    private CheckListRepository checkListRepository;
+    private final CheckListRepository checkListRepository;
 
-    public List<CheckList> getAllCheckList() {
-        return checkListRepository.findAll();
+    @Transactional
+    public List<CheckListResponseDto> getPosts() {
+        return checkListRepository.findAllByOrderModifiedAtDesc().stream().map(CheckListResponseDto::new).toList();
     }
 
-    public CheckList saveCheckList(CheckList checkList) {
-        return checkListRepository.save(checkList);
+    @Transactional
+    public Long save(User user, CheckListSaveRequestDto dto) {
+        CheckList checkList = dto.toEntity(user);
+        CheckList savedCheckList = checkListRepository.save(checkList);
+        return savedCheckList.getId();
     }
-
 }

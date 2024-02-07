@@ -27,7 +27,6 @@ public class DiaryController {
 
         return result;
     }
-
     @GetMapping("/api/diary/getAll")
     public List<DiaryResponseDto> getPosts(Authentication auth) {
         return diaryService.getPosts();
