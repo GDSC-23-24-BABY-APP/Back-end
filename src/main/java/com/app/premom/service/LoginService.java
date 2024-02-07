@@ -1,5 +1,6 @@
 package com.app.premom.service;
 
+import com.app.premom.dto.UserResource;
 import com.app.premom.dto.UserSignupDto;
 import com.app.premom.entity.User;
 import com.app.premom.jwt.JwtTokenUtil;
@@ -43,23 +44,60 @@ public class LoginService {
 
         JsonNode userResourceNode = getUserResource(accessToken, registrationId);
         System.out.println("userResourceNode = " + userResourceNode);
-        String id = userResourceNode.get("id").asText();
-        String email = userResourceNode.get("email").asText();
-        String username = userResourceNode.get("name").asText();
+//        String id = userResourceNode.get("id").asText();
+//        String email = userResourceNode.get("email").asText();
+//        String username = userResourceNode.get("name").asText();
+//
+//        System.out.println("id = " + id);
+//        System.out.println("email = " + email);
+//        System.out.println("nickname = " + username);
 
-        System.out.println("id = " + id);
-        System.out.println("email = " + email);
-        System.out.println("nickname = " + username);
+        //추가 및 수정 코드 시작 ===========
 
-        User user = signupOrLogin(email, username);
+        UserResource userResource = new UserResource();
+
+        switch (registrationId) {
+            case "google": {
+                userResource = UserResource.builder()
+                        .id(userResourceNode.get("id").asText())
+                        .email(userResourceNode.get("email").asText())
+                        .username(userResourceNode.get("name").asText())
+                        .build();
+                break;
+            }
+            case "kakao": {
+                userResource = UserResource.builder()
+                        .email(userResourceNode.get("kakao_account").get("email").asText())
+                        .username(userResourceNode.get("kakao_account").get("name").asText())
+                        .phoneNumber(userResourceNode.get("kakao_account").get("phone_number").asText())
+                        .ageRange(userResourceNode.get("kakao_account").get("age_range").asText())
+                        .birthYear(userResourceNode.get("kakao_account").get("birthyear").asText())
+                        .gender(userResourceNode.get("kakao_account").get("gender").asText())
+                        .build();
+                break;
+            }
+            case "naver": {
+
+            } default: {
+                throw new RuntimeException("UNSUPPORTED SOCIAL TYPE");
+            }
+        }
+
+
+
+        // ======================
+
+
+        // 회원가입 혹은 로그인(이미 가입한 회원인 경우)
+        User user = signupOrLogin(registrationId, userResource);
 
         long expireTimeMs = 1000 * 60 * 60 * 8; // Token 유효 시간 = 8시간
-        String jwtToken = JwtTokenUtil.createToken(email, secretKey, expireTimeMs);
+        String jwtToken = JwtTokenUtil.createToken(user.getEmail(), secretKey, expireTimeMs);
 
         // 사용자 정보를 JSON 형태로 리턴
         Map<String, Object> response = new HashMap<>();
         response.put("userId", user.getId());
-        response.put("token", jwtToken);
+        response.put("token", jwtToken); // 사용자 이메일 정보로 생성한 우리 앱 전용 토큰
         response.put("email", user.getEmail());
         response.put("username", user.getUsername());
 
@@ -68,19 +106,36 @@ public class LoginService {
     }
 
     @Transactional
-    public User signupOrLogin(String email, String username) {
+    public User signupOrLogin(String registrationId, UserResource userResource) {
 
-        if (userRepository.findByEmail(email).isEmpty()) {
+        if (userRepository.findByEmail(userResource.getEmail()).isEmpty()) {
             //userRepository.c
-            User user = userRepository.save(UserSignupDto.builder().email(email).username(username).isSocialLogin(1).build().toEntity());
-            System.out.println("새로운 회원입니다. 회원가입이 진행되었습니다.");
+            User user = new User();
 
-            return user;
+            switch(registrationId) {
+                case "google" : {
+                    user = userRepository.save(UserSignupDto.builder().email(userResource.getEmail()).username(userResource.getUsername()).isSocialLogin(1).build().toEntity());
+                    System.out.println("새로운 회원입니다. 회원가입이 진행되었습니다.");
+                    return user;
+                }
+                case "kakao" : {
+                    user = userRepository.save(UserSignupDto.builder().email(userResource.getEmail()).username(userResource.getUsername()).phoneNumber(userResource.getPhoneNumber()).ageRange(userResource.getAgeRange()).birthYear(userResource.getBirthYear()).gender(userResource.getGender()).isSocialLogin(1).build().toEntity());
+                    System.out.println("새로운 회원입니다. 회원가입이 진행되었습니다.");
+                    return user;
+                }
+                case "naver" : {
+                    user = userRepository.save(UserSignupDto.builder().email(userResource.getEmail()).username(userResource.getUsername()).isSocialLogin(1).build().toEntity());
+                    System.out.println("새로운 회원입니다.. 회원가입이 진행되었습니다.");
+                    return user;
+                } default: {
+                    throw new RuntimeException("UNSUPPORTED SOCIAL TYPE");
+                }
+            }
         }
 
         System.out.println("기존에 가입한 회원입니다.");
 
-        User user = userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("회원 조회 오류"));
+        User user = userRepository.findByEmail(userResource.getEmail()).orElseThrow(() -> new IllegalArgumentException("회원 조회 오류"));
 
         return user;
     }

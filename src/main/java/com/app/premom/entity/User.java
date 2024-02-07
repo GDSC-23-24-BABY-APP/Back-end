@@ -28,23 +28,26 @@ public class User {
     private int height;
     private int weight;
     private int isSocialLogin; // 0이면 일반 회원가입 회원, 1이면 소셜로그인 회원
-    //회원 가족 구성원
-    //private ArrayList<User> userMember;
     private String healthInfo;
     @Enumerated(EnumType.STRING)
     @Column(name = "ROLE", nullable = false)
     private Roles role;
+    private String familyType;
+    private String gender;
+    private String birthYear;
+    private String ageRange;
+    private String phoneNumber;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "baby_family_id")
+    private BabyFamily family;
 
     @OneToMany(mappedBy = "author",  cascade = CascadeType.PERSIST)
     private List<Diary> diaryList = new ArrayList<>();
 
 
-    //oauth2
-    private String provider;
-    private String providerId;
-
     @Builder
-    public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin) {
+    public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin, String familyType, String gender, String ageRange, String birthYear, String phoneNumber) {
         this.memberId = userId;
         this.email = email;
         this.username = username;
@@ -56,12 +59,29 @@ public class User {
         this.height = height;
         this.role = role;
         this.isSocialLogin = isSocialLogin;
+        this.familyType = familyType;
+        this.gender = gender;
+        this.ageRange = ageRange;
+        this.birthYear = birthYear;
+        this.phoneNumber = phoneNumber;
     }
 
+
+    public void updateInfo(String familyType, int weight, int height, String bloodRhType, String bloodType) {
+        this.familyType = familyType;
+        this.weight = weight;
+        this.height = height;
+        this.bloodRhType = bloodRhType;
+        this.bloodType = bloodType;
+    }
 
     public Object update(String name, String profileImageUrl) {
         this.username = name;
 
         return this;
+    }
+
+    public void updateFamily(BabyFamily family) {
+        this.family = family;
     }
 }

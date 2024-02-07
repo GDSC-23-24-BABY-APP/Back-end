@@ -4,7 +4,9 @@ import com.app.premom.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Getter
 @Entity
 public class Diary extends BaseTimeEntity {
@@ -15,7 +17,7 @@ public class Diary extends BaseTimeEntity {
     @Column(nullable = false)
     private String contents;
 
-    @Column(nullable = false)
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User author;
