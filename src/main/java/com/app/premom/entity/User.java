@@ -1,5 +1,6 @@
 package com.app.premom.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class User {
     private String email;
     private String username;
     private String nickname;
+    private int day; //임신 몇일차인지
     private String password;
     private String bloodType;
     private String bloodRhType;
@@ -37,13 +39,23 @@ public class User {
     private String birthYear;
     private String ageRange;
     private String phoneNumber;
+    private String profileImage; // Google Cloud Storage에 저장된 이미지 파일 URL
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "baby_family_id")
     private BabyFamily family;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "author",  cascade = CascadeType.PERSIST)
     private List<Diary> diaryList = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<CheckListAnswer> answers = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<HealthRecord> records = new ArrayList<>();
 
 
     @Builder
@@ -83,5 +95,9 @@ public class User {
 
     public void updateFamily(BabyFamily family) {
         this.family = family;
+    }
+
+    public void updateProfileImage(String imageUrl) {
+        this.profileImage = imageUrl;
     }
 }
