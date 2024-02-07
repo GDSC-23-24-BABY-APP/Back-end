@@ -1,17 +1,27 @@
 package com.app.premom.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import lombok.Builder;
+import java.util.List;
+import lombok.Getter;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+@Getter
 @Entity
 public class CheckList {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String userName;
-    private String status;
+    @Column(nullable = false)
+    private List checkList;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User author;
+
+    @Builder
+    public CheckList(List checkList, User user){
+        this.checkList = checkList;
+        this.author = user;
+    }
 }

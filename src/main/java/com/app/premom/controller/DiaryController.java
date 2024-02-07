@@ -23,8 +23,8 @@ public class DiaryController {
     public Long save(@RequestBody DiarySaveRequestDto dto, Authentication auth) {
         User user = loginService.getLoginUserByLoginId(auth.getName());
         Long result = diaryService.save(user, dto);
+        return result;
     }
-
     @GetMapping("/api/diary/getAll")
     public List<DiaryResponseDto>getPosts(Authentication auth) {
         return diaryService.getPosts();

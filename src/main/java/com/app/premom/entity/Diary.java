@@ -26,6 +26,4 @@ public class Diary extends BaseTimeEntity {
         this.contents = contents;
         this.author = user;
     }
-
-
 }
