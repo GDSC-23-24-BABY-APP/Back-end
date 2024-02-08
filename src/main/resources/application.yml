@@ -33,11 +33,16 @@ spring:
       path: /h2-console  # H2 Console의 Path
   # Database Setting Info (Database를 H2로 사용하기 위해 H2연결 정보 입력)
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/tobemom
-    username: sa
-    password:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:tcp://localhost/~/tobemom
+#    username: sa
+#    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://34.64.91.230:3306/tobemom?serverTimezone=UTC
+    username: tobemom-db
+    password: lyj030900
   jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
     generate-ddl: 'true'
     hibernate:
       ddl-auto: update
