@@ -22,8 +22,8 @@ public class LoginController {
     public ResponseEntity<Object> googleLogin(@RequestParam("code") String code, @PathVariable(name="registrationId") String registrationId) {
         System.out.println("컨트롤러");
         return loginService.socialLogin(code, registrationId);
-
     }
+
 
     @GetMapping("/testLogin")
     public String testLogin(Authentication auth) {
