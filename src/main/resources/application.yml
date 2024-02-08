@@ -9,7 +9,7 @@ oauth2:
   kakao:
     client-id: 5739d24b3200adc30b4b7bce937f8352
     client-secret:  jf8ZHaFFc6p0NZCsmGHw60rP1brdpfbx
-    redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+    redirect-uri: http://34.64.44.183:8080/login/oauth2/code/kakao
     token-uri: https://kauth.kakao.com/oauth/token
     resource-uri: https://kapi.kakao.com/v2/user/me
   naver:
