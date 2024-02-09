@@ -37,6 +37,7 @@ public class LoginService {
 //        this.env = env;
 //    }
 
+    @Transactional
     public ResponseEntity<Object> socialLogin(String code, String registrationId) {
         System.out.println("소셜로그인 함수");
         String accessToken = getAccessToken(code, registrationId);
