@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,5 +100,17 @@ public class User {
 
     public void updateProfileImage(String imageUrl) {
         this.profileImage = imageUrl;
+    }
+
+    public void encodePassword(PasswordEncoder passwordEncoder) {
+        this.password = passwordEncoder.encode(password);
+    }
+
+    public boolean checkPassword(PasswordEncoder passwordEncoder, String inputPassword) {
+        return passwordEncoder.matches(inputPassword, this.password);
+    }
+
+    public void addUserAuthority() {
+        this.role = Roles.USER;
     }
 }

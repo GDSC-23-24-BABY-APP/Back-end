@@ -1,5 +1,6 @@
 package com.app.premom.service;
 
+import com.app.premom.dto.LoginRequestDto;
 import com.app.premom.dto.UserResource;
 import com.app.premom.dto.UserSignupDto;
 import com.app.premom.entity.User;
@@ -10,13 +11,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -27,18 +31,28 @@ public class LoginService {
     private final Environment env;
     private final RestTemplate restTemplate = new RestTemplate();
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
     //jwt관리
     //private final CustomAuthorityUtils authorityUtils;
 
     @Value("${jwt.secret}")
     private String secretKey;
 
-//    @Transactional
-//    public Long join(UserSignupDto dto) {
-//        if (userRepository.findByEmail(dto.getEmail()).isPresent()) {
-//
-//        }
-//    }
+    @Transactional
+    public Long join(UserSignupDto dto) {
+        if (userRepository.findByEmail(dto.getEmail()).isPresent()) {
+            return -1L;
+        }
+
+        else {
+            User user = userRepository.save(dto.toEntity());
+            user.encodePassword(passwordEncoder);
+            user.addUserAuthority();
+            return user.getId();
+        }
+
+    }
 
 //    public LoginService(Environment env) {
 //        this.env = env;
@@ -199,5 +213,22 @@ public class LoginService {
 
     public User getLoginUserByLoginId(String loginId) {
         return userRepository.findByEmail(loginId).orElseThrow(() -> new IllegalArgumentException("해당 회원을 조회할 수 없습니다."));
+    }
+
+    public User login(LoginRequestDto loginRequestDto) {
+        User member = userRepository.findByEmail(loginRequestDto.getEmail())
+                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 Email 입니다."));
+
+        //Member nullM = memberRepository.findByEmail("null").orElseThrow();
+        String password = loginRequestDto.getPassword();
+        if (!member.checkPassword(passwordEncoder, password)) {
+            //return Optional.ofNullable(nullM);
+            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
+        }
+
+        List<String> roles = new ArrayList<>();
+        roles.add(member.getRole().name());
+
+        return member;
     }
 }
