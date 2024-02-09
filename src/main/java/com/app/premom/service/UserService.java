@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
     private final UserRepository userRepository;
 
+    @Transactional
     public Long updateInfo(User user, UserInfoUpdateDto dto) {
         user.updateInfo(dto.getFamilyType(), dto.getWeight(), dto.getHeight(), dto.getBloodRhType(), dto.getBloodType());
         return user.getId();
