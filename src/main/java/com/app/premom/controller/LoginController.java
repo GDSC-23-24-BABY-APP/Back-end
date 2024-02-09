@@ -18,6 +18,7 @@ public class LoginController {
 //        this.loginService = loginService;
 //    }
 
+    // 소셜로그인
     @GetMapping("/code/{registrationId}")
     public ResponseEntity<Object> googleLogin(@RequestParam("code") String code, @PathVariable(name="registrationId") String registrationId) {
         System.out.println("컨트롤러");
@@ -33,4 +34,9 @@ public class LoginController {
         return String.format("loginId : %s\nusername : %s\nrole: %s",
                 loginUser.getEmail(), loginUser.getUsername(), loginUser.getRole());
     }
+
+//    @PostMapping("/join")
+//    public Long join(@RequestBody UserSignupDto dto) {
+//        //return LoginService.join(dto);
+//    }
 }

@@ -33,6 +33,13 @@ public class LoginService {
     @Value("${jwt.secret}")
     private String secretKey;
 
+//    @Transactional
+//    public Long join(UserSignupDto dto) {
+//        if (userRepository.findByEmail(dto.getEmail()).isPresent()) {
+//
+//        }
+//    }
+
 //    public LoginService(Environment env) {
 //        this.env = env;
 //    }
