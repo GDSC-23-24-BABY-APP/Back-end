@@ -4,6 +4,7 @@ import com.app.premom.entity.Roles;
 import com.app.premom.entity.User;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -24,6 +25,9 @@ public class UserSignupDto {
     private String ageRange;
     private String birthYear;
     private String phoneNumber;
+    private String familyType;
+    private String babyName;
+    private LocalDate babyBirthDate;
 
     public User toEntity() {
         return User.builder()
@@ -37,6 +41,9 @@ public class UserSignupDto {
                 .ageRange(ageRange)
                 .birthYear(birthYear)
                 .phoneNumber(phoneNumber)
+                .familyType(familyType)
+                .babyName(babyName)
+                .babyBirthDate(babyBirthDate)
                 .build();
     }
 }
