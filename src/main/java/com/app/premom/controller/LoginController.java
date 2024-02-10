@@ -1,6 +1,8 @@
 package com.app.premom.controller;
 
+import com.app.premom.ApiResponse;
 import com.app.premom.dto.LoginRequestDto;
+import com.app.premom.dto.UserInfoResponseDto;
 import com.app.premom.dto.UserSignupDto;
 import com.app.premom.entity.User;
 import com.app.premom.jwt.JwtTokenUtil;
@@ -8,12 +10,8 @@ import com.app.premom.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -30,11 +28,14 @@ public class LoginController {
 //    }
 
     // 소셜로그인
+//    @ApiOperation(value = "Get user information", response = ResponseEntity.class)
+//    @ApiResponses(value = {
+//            @ApiResponse(code = 200, message = "Successful operation", response = ResponseEntity.class)
+//    })
     @GetMapping("/code/{registrationId}")
-    @ResponseBody
-    public ResponseEntity<Object> socialLogin(@RequestParam("code") String code, @PathVariable(name="registrationId") String registrationId) {
+    public ApiResponse<UserInfoResponseDto> socialLogin(@RequestParam("code") String code, @PathVariable(name="registrationId") String registrationId) {
         System.out.println("컨트롤러");
-        return loginService.socialLogin(code, registrationId);
+        return ApiResponse.createSuccess(loginService.socialLogin(code, registrationId));
     }
 
 
@@ -54,24 +55,30 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public ResponseEntity<Object> login(@RequestBody LoginRequestDto loginRequestDto) {
+    public ApiResponse<UserInfoResponseDto> login(@RequestBody LoginRequestDto loginRequestDto) {
         User user = loginService.login(loginRequestDto);
 
         if (user == null) {
-            return ResponseEntity.badRequest().body("로그인 아이디 또는 비밀번호가 틀렸습니다.");
+            return (ApiResponse<UserInfoResponseDto>)ApiResponse.createError("이메일 또는 비밀번호가 틀렸습니다.");
         }
 
         long expireTimeMs = 1000 * 60 * 60 * 8; // Token 유효 시간 = 8시간
         String jwtToken = JwtTokenUtil.createToken(loginRequestDto.getEmail(), secretKey, expireTimeMs);
 
-        // 사용자 정보를 JSON 형태로 리턴
-        Map<String, Object> response = new HashMap<>();
-        response.put("userId", user.getId());
-        response.put("token", jwtToken);
-        response.put("email", user.getEmail());
-        response.put("username", user.getUsername());
+        return ApiResponse.createSuccess(UserInfoResponseDto.builder().userId(user.getId())
+                .token(jwtToken)
+                .email(user.getEmail())
+                .username(user.getUsername())
+                .build());
 
-        log.info("hihihibye");
-        return ResponseEntity.ok(response);
+        // 사용자 정보를 JSON 형태로 리턴
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("userId", user.getId());
+//        response.put("token", jwtToken);
+//        response.put("email", user.getEmail());
+//        response.put("username", user.getUsername());
+//
+//        log.info("hihihibye");
+//        return ResponseEntity.ok(response);
     }
 }

@@ -1,6 +1,7 @@
 package com.app.premom.service;
 
 import com.app.premom.dto.LoginRequestDto;
+import com.app.premom.dto.UserInfoResponseDto;
 import com.app.premom.dto.UserResource;
 import com.app.premom.dto.UserSignupDto;
 import com.app.premom.entity.User;
@@ -19,9 +20,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @Transactional(readOnly = true)
@@ -59,7 +58,7 @@ public class LoginService {
 //    }
 
     @Transactional
-    public ResponseEntity<Object> socialLogin(String code, String registrationId) {
+    public UserInfoResponseDto socialLogin(String code, String registrationId) {
         System.out.println("소셜로그인 함수");
         String accessToken = getAccessToken(code, registrationId);
         System.out.println("accessToken = " + accessToken);
@@ -116,15 +115,20 @@ public class LoginService {
         long expireTimeMs = 1000 * 60 * 60 * 8; // Token 유효 시간 = 8시간
         String jwtToken = JwtTokenUtil.createToken(user.getEmail(), secretKey, expireTimeMs);
 
+        return UserInfoResponseDto.builder().userId(user.getId())
+                .token(jwtToken)
+                .email(user.getEmail())
+                .username(user.getUsername())
+                .build();
         // 사용자 정보를 JSON 형태로 리턴
-        Map<String, Object> response = new HashMap<>();
-        response.put("userId", user.getId());
-        response.put("token", jwtToken); // 사용자 이메일 정보로 생성한 우리 앱 전용 토큰
-        response.put("email", user.getEmail());
-        response.put("username", user.getUsername());
-
-        //log.info("hihihibye");
-        return ResponseEntity.ok(response);
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("userId", user.getId());
+//        response.put("token", jwtToken); // 사용자 이메일 정보로 생성한 우리 앱 전용 토큰
+//        response.put("email", user.getEmail());
+//        response.put("username", user.getUsername());
+//
+//        //log.info("hihihibye");
+//        return ResponseEntity.ok(response);
     }
 
     @Transactional
