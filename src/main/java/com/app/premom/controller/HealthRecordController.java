@@ -3,7 +3,7 @@ package com.app.premom.controller;
 import com.app.premom.dto.HealthRecordResponseDto;
 import com.app.premom.dto.HealthRecordSaveDto;
 import com.app.premom.entity.User;
-import com.app.premom.response.ApiResponse;
+import com.app.premom.ApiResponse;
 import com.app.premom.service.HealthRecordService;
 import com.app.premom.service.LoginService;
 import lombok.RequiredArgsConstructor;

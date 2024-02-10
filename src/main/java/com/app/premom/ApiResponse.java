@@ -1,4 +1,4 @@
-package com.app.premom.response;
+package com.app.premom;
 
 import lombok.AccessLevel;
 import lombok.Getter;
