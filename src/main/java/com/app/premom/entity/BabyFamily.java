@@ -1,10 +1,12 @@
 package com.app.premom.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -22,15 +24,19 @@ public class BabyFamily {
 
     private String babyName; // 아기 태명
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
+    private LocalDate babyBirthDate;
+
     private int babyNum; // 첫째 둘째
 
-    @OneToMany(mappedBy = "family")
+    @OneToMany(mappedBy = "family", cascade = CascadeType.ALL)
     private List<User> familyMembers = new ArrayList<>(); // 가족 구성원
 
     @Builder
-    public BabyFamily(String babyName, int babyNum) {
+    public BabyFamily(String babyName, int babyNum, LocalDate babyBirthDate) {
         this.babyName = babyName;
         this.babyNum = babyNum;
+        this.babyBirthDate = babyBirthDate;
         createJoinCode();
     }
 

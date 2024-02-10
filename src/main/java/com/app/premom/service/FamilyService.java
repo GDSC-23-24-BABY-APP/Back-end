@@ -21,9 +21,11 @@ public class FamilyService {
      * @param dto
      * @return
      */
+    @Transactional
     public String save(User user, BabyFamilySaveDto dto) {
         if (user.getFamilyType() == "mom") {
-            user.updateFamily(dto.toEntity());
+            //user.updateFamily(dto.toEntity());
+            user.updateFamily(familyRepository.save(dto.toEntity()));
             return user.getFamily().getJoinCode();
         }
 
@@ -32,6 +34,7 @@ public class FamilyService {
         }
     }
 
+    @Transactional
     // 회원의 가족 추가
     public Long joinFamily(User user, String code) {
         if(familyRepository.findByJoinCode(code).isPresent()) {
