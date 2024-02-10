@@ -23,6 +23,7 @@ public class DiaryServiceTest {
     public void 다이어리_생성() throws Exception {
         //Given
         User user = User.builder().username("TestUser1").build();
+
         DiarySaveRequestDto diarySaveRequestDto = DiarySaveRequestDto.builder()
                 .title("다이어리1")
                 .contents("내용1")
