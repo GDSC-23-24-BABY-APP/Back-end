@@ -31,7 +31,8 @@ public class LoginController {
 
     // 소셜로그인
     @GetMapping("/code/{registrationId}")
-    public ResponseEntity<Object> googleLogin(@RequestParam("code") String code, @PathVariable(name="registrationId") String registrationId) {
+    @ResponseBody
+    public ResponseEntity<Object> socialLogin(@RequestParam("code") String code, @PathVariable(name="registrationId") String registrationId) {
         System.out.println("컨트롤러");
         return loginService.socialLogin(code, registrationId);
     }
@@ -52,6 +53,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
+    @ResponseBody
     public ResponseEntity<Object> login(@RequestBody LoginRequestDto loginRequestDto) {
         User user = loginService.login(loginRequestDto);
 
