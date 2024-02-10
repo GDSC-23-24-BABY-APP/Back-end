@@ -33,7 +33,7 @@ public class User {
     private int isSocialLogin; // 0이면 일반 회원가입 회원, 1이면 소셜로그인 회원
     private String healthInfo;
     @Enumerated(EnumType.STRING)
-    @Column(name = "ROLE", nullable = false)
+    @Column(name = "ROLE")
     private Roles role;
     private String familyType;
     private String gender;
@@ -96,6 +96,7 @@ public class User {
 
     public void updateFamily(BabyFamily family) {
         this.family = family;
+        family.getFamilyMembers().add(this);
     }
 
     public void updateProfileImage(String imageUrl) {
