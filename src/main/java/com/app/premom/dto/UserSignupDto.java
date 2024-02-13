@@ -27,7 +27,7 @@ public class UserSignupDto {
     private String phoneNumber;
     private String familyType;
     private String babyName;
-    private LocalDate babyBirthDate;
+    private Date babyBirthDate;
 
     public User toEntity() {
         return User.builder()
