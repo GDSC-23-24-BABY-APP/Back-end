@@ -7,8 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -43,7 +43,7 @@ public class User {
     private String phoneNumber;
     private String profileImage; // Google Cloud Storage에 저장된 이미지 파일 URL
     private String babyName;
-    private LocalDate babyBirthDate;
+    private Date babyBirthDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "baby_family_id")
@@ -63,7 +63,7 @@ public class User {
 
 
     @Builder
-    public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin, String familyType, String gender, String ageRange, String birthYear, String phoneNumber, String babyName, LocalDate babyBirthDate) {
+    public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin, String familyType, String gender, String ageRange, String birthYear, String phoneNumber, String babyName, Date babyBirthDate) {
         this.memberId = userId;
         this.email = email;
         this.username = username;

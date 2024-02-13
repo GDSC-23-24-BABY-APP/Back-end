@@ -18,6 +18,12 @@ public class FamilyController {
     private final LoginService loginService;
     private final FamilyService familyService;
 
+    /**
+     * 초대 코드 입력 -> 가족에 join
+     * @param auth
+     * @param code
+     * @return
+     */
     @GetMapping("/join/{code}")
     public Long acceptJoin(Authentication auth, @PathVariable String code) {
         User user = loginService.getLoginUserByLoginId(auth.getName());

@@ -1,11 +1,8 @@
 package com.app.premom.controller;
 
 import com.app.premom.ApiResponse;
-import com.app.premom.dto.LoginRequestDto;
 import com.app.premom.dto.UserInfoResponseDto;
-import com.app.premom.dto.UserSignupDto;
 import com.app.premom.entity.User;
-import com.app.premom.jwt.JwtTokenUtil;
 import com.app.premom.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/login/oauth2", produces = "application/json")
+@RequestMapping(value = "/api/login/oauth2", produces = "application/json")
 public class LoginController {
 
     private final LoginService loginService;
@@ -48,37 +45,37 @@ public class LoginController {
                 loginUser.getEmail(), loginUser.getUsername(), loginUser.getRole());
     }
 
-    @PostMapping("/join")
-    public Long join(@RequestBody UserSignupDto dto) {
-        return loginService.join(dto);
-    }
-
-    @PostMapping("/login")
-    @ResponseBody
-    public ApiResponse<UserInfoResponseDto> login(@RequestBody LoginRequestDto loginRequestDto) {
-        User user = loginService.login(loginRequestDto);
-
-        if (user == null) {
-            return (ApiResponse<UserInfoResponseDto>)ApiResponse.createError("이메일 또는 비밀번호가 틀렸습니다.");
-        }
-
-        long expireTimeMs = 1000 * 60 * 60 * 8; // Token 유효 시간 = 8시간
-        String jwtToken = JwtTokenUtil.createToken(loginRequestDto.getEmail(), secretKey, expireTimeMs);
-
-        return ApiResponse.createSuccess(UserInfoResponseDto.builder().userId(user.getId())
-                .token(jwtToken)
-                .email(user.getEmail())
-                .username(user.getUsername())
-                .build());
-
-        // 사용자 정보를 JSON 형태로 리턴
-//        Map<String, Object> response = new HashMap<>();
-//        response.put("userId", user.getId());
-//        response.put("token", jwtToken);
-//        response.put("email", user.getEmail());
-//        response.put("username", user.getUsername());
+//    @PostMapping("/join")
+//    public Long join(@RequestBody UserSignupDto dto) {
+//        return loginService.join(dto);
+//    }
 //
-//        log.info("hihihibye");
-//        return ResponseEntity.ok(response);
-    }
+//    @PostMapping("/login")
+//    @ResponseBody
+//    public ApiResponse<UserInfoResponseDto> login(@RequestBody LoginRequestDto loginRequestDto) {
+//        User user = loginService.login(loginRequestDto);
+//
+//        if (user == null) {
+//            return (ApiResponse<UserInfoResponseDto>)ApiResponse.createError("이메일 또는 비밀번호가 틀렸습니다.");
+//        }
+//
+//        long expireTimeMs = 1000 * 60 * 60 * 8; // Token 유효 시간 = 8시간
+//        String jwtToken = JwtTokenUtil.createToken(loginRequestDto.getEmail(), secretKey, expireTimeMs);
+//
+//        return ApiResponse.createSuccess(UserInfoResponseDto.builder().userId(user.getId())
+//                .token(jwtToken)
+//                .email(user.getEmail())
+//                .username(user.getUsername())
+//                .build());
+//
+//        // 사용자 정보를 JSON 형태로 리턴
+////        Map<String, Object> response = new HashMap<>();
+////        response.put("userId", user.getId());
+////        response.put("token", jwtToken);
+////        response.put("email", user.getEmail());
+////        response.put("username", user.getUsername());
+////
+////        log.info("hihihibye");
+////        return ResponseEntity.ok(response);
+//    }
 }

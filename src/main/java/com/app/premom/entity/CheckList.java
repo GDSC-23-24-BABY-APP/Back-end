@@ -21,7 +21,7 @@ public class CheckList extends BaseTimeEntity { // 체크리스트 엔티티
 
     private String title;
 
-    private int num; //0이면 초기(유산 질문), 1이면 후기(사산 질문)
+    private int num; //0이면 초기(유산 질문), 1이면 중기, 2이면 후기(사산 질문)
 
     @OneToMany(mappedBy = "checkList", cascade = CascadeType.ALL)
     private List<Question> questions = new ArrayList<>();
@@ -34,9 +34,18 @@ public class CheckList extends BaseTimeEntity { // 체크리스트 엔티티
         this.num = num;
     }
 
-    // == 연관관계 매핑 ==
+    //==연관관계 편의 메서드==//
     public void addQuestion(Question question) {
         this.questions.add(question);
         question.setCheckList(this);
+    }
+
+    //==생성 메서드==//
+    public static CheckList createCheckList(Question... questions) {
+        CheckList checkList = new CheckList();
+        for (Question question : questions) {
+            checkList.addQuestion(question);
+        }
+        return checkList;
     }
 }
