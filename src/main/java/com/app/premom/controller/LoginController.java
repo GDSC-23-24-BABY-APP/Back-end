@@ -5,10 +5,12 @@ import com.app.premom.dto.UserInfoResponseDto;
 import com.app.premom.entity.User;
 import com.app.premom.service.LoginService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/login/oauth2", produces = "application/json")
