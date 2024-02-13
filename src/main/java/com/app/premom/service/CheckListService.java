@@ -1,5 +1,7 @@
 package com.app.premom.service;
 
+import com.app.premom.dto.CheckListResponseDto;
+import com.app.premom.entity.CheckList;
 import com.app.premom.repository.CheckListRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,9 +14,10 @@ public class CheckListService {
 
     private final CheckListRepository checkListRepository;
 
-//    public CheckListResponseDto findByNum(int num) {
-//
-//    }
+    public CheckListResponseDto findByNum(int num) {
+        CheckList checkList = checkListRepository.findByNum(num).orElseThrow(()-> new IllegalArgumentException("해당 num인 체크리스트가 존재하지 않습니다."));
+        return new CheckListResponseDto(checkList);
+    }
 
 //    @Transactional
 //    public List<CheckListResponseDto> getPosts() {
