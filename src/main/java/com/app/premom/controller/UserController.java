@@ -8,10 +8,12 @@ import com.app.premom.service.FamilyService;
 import com.app.premom.service.LoginService;
 import com.app.premom.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RequestMapping(value = "/api/user", produces = "application/json")
 @RequiredArgsConstructor
 @RestController
