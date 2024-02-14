@@ -61,6 +61,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<HealthRecord> records = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<CheckListResult> results = new ArrayList<>();
+
 
     @Builder
     public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin, String familyType, String gender, String ageRange, String birthYear, String phoneNumber, String babyName, Date babyBirthDate) {
