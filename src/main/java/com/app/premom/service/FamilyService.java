@@ -5,9 +5,11 @@ import com.app.premom.entity.BabyFamily;
 import com.app.premom.entity.User;
 import com.app.premom.repository.FamilyRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
