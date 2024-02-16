@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/api/login/oauth2", produces = "application/json")
+@RequestMapping(value = "/login/oauth2", produces = "application/json")
 public class LoginController {
 
     private final LoginService loginService;
