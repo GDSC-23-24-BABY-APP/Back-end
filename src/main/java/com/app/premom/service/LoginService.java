@@ -84,7 +84,7 @@ public class LoginService {
                 userResource = UserResource.builder()
                         .id(userResourceNode.get("id").asText())
                         .email(userResourceNode.get("email").asText())
-                        .username(userResourceNode.get("name").asText())
+                        //.username(userResourceNode.get("name").asText())
                         .build();
                 break;
             }
@@ -120,7 +120,7 @@ public class LoginService {
         return UserInfoResponseDto.builder().userId(user.getId())
                 .token(jwtToken)
                 .email(user.getEmail())
-                .username(user.getUsername())
+                //.username(user.getUsername())
                 .build();
         // 사용자 정보를 JSON 형태로 리턴
 //        Map<String, Object> response = new HashMap<>();
@@ -142,7 +142,7 @@ public class LoginService {
 
             switch(registrationId) {
                 case "google" : {
-                    user = userRepository.save(UserSignupDto.builder().email(userResource.getEmail()).username(userResource.getUsername()).isSocialLogin(1).build().toEntity());
+                    user = userRepository.save(UserSignupDto.builder().email(userResource.getEmail()).isSocialLogin(1).build().toEntity());
                     System.out.println("새로운 회원입니다. 회원가입이 진행되었습니다.");
                     return user;
                 }
