@@ -3,6 +3,7 @@ package com.app.premom.controller;
 
 import com.app.premom.ApiResponse;
 import com.app.premom.dto.CalCheckListResultDto;
+import com.app.premom.dto.CheckListCalResponseDto;
 import com.app.premom.dto.CheckListResponseDto;
 import com.app.premom.service.CheckListService;
 import com.app.premom.service.LoginService;
@@ -17,6 +18,10 @@ public class CheckListController {
     private final LoginService loginService;
 
 
+//    @PostMapping("/checklists/new")
+//    public Long createCheckList() {
+//        return checkListService.saveCheckList();
+//    }
 
 //    @PostMapping("/checklists/new")
 //    public Long save(@RequestBody CheckListResponseDto dto, Authentication auth) {
@@ -40,10 +45,10 @@ public class CheckListController {
     }
 
     @PostMapping("/cal-result")
-    public ApiResponse<Integer> calculateResult(@RequestBody CalCheckListResultDto dto) {
-        int result = checkListService.getResultInfo(dto);
-        if(result <= -1) {
-            return (ApiResponse<Integer>) ApiResponse.createError("체크리스트 결과 계산에 실패하였습니다.");
+    public ApiResponse<CheckListCalResponseDto> calculateResult(@RequestBody CalCheckListResultDto dto) {
+        CheckListCalResponseDto result = checkListService.getResultInfo(dto);
+        if(result.getResult() <= -1) {
+            return (ApiResponse<CheckListCalResponseDto>) ApiResponse.createError("체크리스트 결과 계산에 실패하였습니다.");
         }
         return ApiResponse.createSuccess(result);
     }
