@@ -33,9 +33,30 @@ public class CheckListService {
     public Long saveCheckList() {
         Question question1 = Question.builder()
                 .num(1)
-                .content("내용")
-                .risk(5).build();
-        CheckList checkList1 = CheckList.createCheckList(question1);
+                .content("There is vaginal bleeding.")
+                .risk(10).build();
+//        Question question1 = Question.builder()
+//                .num(1)
+//                .content("There is vaginal bleeding.")
+//                .risk(10).build();
+        /**
+         * There is vaginal bleeding.
+         *
+         * Having difficulty sleeping at night.
+         *
+         * Fingerprints do not easily appear when pressing the skin.
+         *
+         * I have a headache.
+         *
+         * I'm short of breath.
+         *
+         * My eyes feel dry.
+         *
+         * There is discomfort in the back of my neck.
+         *
+         * I have symptoms of bloating.
+         **/
+        CheckList checkList1 = CheckList.createCheckList(0, question1);
 
         return checkListRepository.save(checkList1).getId();
     }

@@ -34,6 +34,10 @@ public class CheckList extends BaseTimeEntity { // 체크리스트 엔티티
         this.num = num;
     }
 
+    public void setNum(int num) {
+        this.num = num;
+    }
+
     //==연관관계 편의 메서드==//
     public void addQuestion(Question question) {
         this.questions.add(question);
@@ -41,11 +45,12 @@ public class CheckList extends BaseTimeEntity { // 체크리스트 엔티티
     }
 
     //==생성 메서드==//
-    public static CheckList createCheckList(Question... questions) {
+    public static CheckList createCheckList(int num, Question... questions) {
         CheckList checkList = new CheckList();
         for (Question question : questions) {
             checkList.addQuestion(question);
         }
+        checkList.setNum(num);
         return checkList;
     }
 }
