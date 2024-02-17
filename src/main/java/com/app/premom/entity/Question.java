@@ -1,6 +1,7 @@
 package com.app.premom.entity;
 
 import com.app.premom.BaseTimeEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +25,7 @@ public class Question extends BaseTimeEntity {
 
     private String symptom; //질문 요약
 
-    //@JsonIgnore
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "checklist_id")
     private CheckList checkList;
