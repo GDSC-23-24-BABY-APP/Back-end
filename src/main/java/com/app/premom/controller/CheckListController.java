@@ -36,7 +36,7 @@ public class CheckListController {
 //    }
 
     @GetMapping("/num")
-    public ApiResponse<CheckListResponseDto> findByNum(@RequestParam int num) {
+    public ApiResponse<CheckListResponseDto> findByNum(@RequestParam(name = "num") int num) {
         CheckListResponseDto result = checkListService.findByNum(num);
         if(result == null) {
             return (ApiResponse<CheckListResponseDto>) ApiResponse.createError("체크리스트 조회에 실패하였습니다.");

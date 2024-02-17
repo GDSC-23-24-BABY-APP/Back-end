@@ -30,7 +30,7 @@ public class CheckListService {
         CheckList checkList = checkListRepository.findByNum(num).orElseThrow(()-> new IllegalArgumentException("해당 num인 체크리스트가 존재하지 않습니다."));
         return new CheckListResponseDto(checkList);
     }
-    
+
 
     // 체크리스트 계산 결과 정보 조회
     public CheckListCalResponseDto getResultInfo(CalCheckListResultDto dto) {
