@@ -80,4 +80,10 @@ public class UserController {
         User user = loginService.getLoginUserByLoginId(auth.getName());
         return familyService.save(user,dto);
     }
+
+    @GetMapping("/info/term")
+    public int getTerm(Authentication auth) {
+        User user = loginService.getLoginUserByLoginId(auth.getName());
+        return userService.getTerm(user);
+    }
 }
