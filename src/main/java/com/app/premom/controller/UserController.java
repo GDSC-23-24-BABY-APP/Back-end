@@ -58,13 +58,20 @@ public class UserController {
 //        return ResponseEntity.ok(response);
     }
 
+    @GetMapping("mypage/info")
+    public ApiResponse<MyPageInfoResponseDto> getMypageInfo(Authentication auth) {
+        User user = loginService.getLoginUserByLoginId(auth.getName());
+        MyPageInfoResponseDto result = userService.getMyPageInfo(user);
+
+    }
+
     /**
      * 회원 정보 update
      * @param auth
      * @param dto
      * @return userId
      */
-    @PostMapping("/info/update")
+    @PostMapping("mypage/info/update")
     public Long updateUserInfo(Authentication auth, @RequestBody UserInfoUpdateDto dto) {
         User user = loginService.getLoginUserByLoginId(auth.getName());
         return userService.updateInfo(user, dto);
