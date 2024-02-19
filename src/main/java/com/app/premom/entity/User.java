@@ -66,7 +66,7 @@ public class User {
 
 
     @Builder
-    public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin, String familyType, String gender, String ageRange, String birthYear, String phoneNumber, String babyName, Date babyBirthDate) {
+    public User(Long userId, String password, String email, String username, String nickname, String bloodType, String bloodRhType, int height, int weight, int healthInfo, Roles role, int isSocialLogin, String familyType, String gender, String ageRange, String birthYear, String phoneNumber, String babyName, Date babyBirthDate, int day) {
         this.memberId = userId;
         this.email = email;
         this.username = username;
@@ -85,6 +85,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.babyBirthDate = babyBirthDate;
         this.babyName = babyName;
+        this.day = day;
     }
 
 

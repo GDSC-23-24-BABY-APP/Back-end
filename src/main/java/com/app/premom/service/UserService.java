@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 @Service
 public class UserService {
+
     private final UserRepository userRepository;
 
     @Transactional
@@ -21,4 +22,8 @@ public class UserService {
         return user.getId();
     }
 
+    public int getTerm(User user) {
+        int day = user.getDay();
+        return day % 7;
+    }
 }
