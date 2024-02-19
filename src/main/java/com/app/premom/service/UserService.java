@@ -1,5 +1,6 @@
 package com.app.premom.service;
 
+import com.app.premom.dto.MyPageInfoResponseDto;
 import com.app.premom.dto.UserInfoUpdateDto;
 import com.app.premom.entity.User;
 import com.app.premom.repository.UserRepository;
@@ -25,5 +26,9 @@ public class UserService {
     public int getTerm(User user) {
         int days = user.getDay();
         return days % 7;
+    }
+
+    public MyPageInfoResponseDto getMyPageInfo(User user) {
+        return new MyPageInfoResponseDto(user);
     }
 }
