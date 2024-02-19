@@ -23,7 +23,7 @@ public class UserService {
     }
 
     public int getTerm(User user) {
-        int day = user.getDay();
-        return day % 7;
+        int days = user.getDay();
+        return days % 7;
     }
 }
