@@ -8,9 +8,9 @@ pipeline {
             }
         }
 
-        stage("Checkout code") {  // 멀티 브랜치파이프라인 작성할 때 세팅해놓은 코드 가져옴. git clone 효과
+        stage("Clone repository") {  // 멀티 브랜치파이프라인 작성할 때 세팅해놓은 코드 가져옴. git clone 효과
                     steps {
-                        checkout scm
+                        git 'https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc.git'
                        }
                 }
 
