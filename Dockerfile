@@ -7,7 +7,7 @@ WORKDIR /opt/gradle
 RUN apt-get update && apt-get install -y curl unzip
 RUN curl -L https://services.gradle.org/distributions/gradle-8.5-bin.zip -o gradle-8.5-bin.zip
 RUN unzip -d /opt/gradle gradle-8.5-bin.zip
-ENV PATH="/opt/gradle/gradle-7.4/bin:${PATH}"
+ENV PATH="/opt/gradle/gradle-8.5/bin:${PATH}"
 
 
 
@@ -24,7 +24,7 @@ WORKDIR /app
 COPY build.gradle .
 COPY settings.gradle .
 COPY src src
-RUN /opt/gradle/gradle-7.4/bin/gradle build
+RUN /opt/gradle/gradle-8.5/bin/gradle build
 
 # 엔트리 포인트 설정
 CMD ["java", "-jar", "build/libs/tobemom-application.jar"]
