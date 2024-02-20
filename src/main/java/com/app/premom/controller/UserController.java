@@ -63,6 +63,7 @@ public class UserController {
         User user = loginService.getLoginUserByLoginId(auth.getName());
         MyPageInfoResponseDto result = userService.getMyPageInfo(user);
 
+        return ApiResponse.createSuccess(result);
     }
 
     /**
