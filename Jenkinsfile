@@ -8,41 +8,32 @@ pipeline {
             }
         }
 
-        stage("Clone repository") {  // 멀티 브랜치파이프라인 작성할 때 세팅해놓은 코드 가져옴. git clone 효과
-                    steps {
-                        git 'https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc.git'
-                       }
-                }
-
-        stage('Build Docker Image') {
+        stage("Clone repository") {
             steps {
-                    def app
+                git 'https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc.git'
+            }
+        }
+
+        stage('Build and Push Docker Image') {
+            steps {
+                script {
+                    // Docker 이미지 빌드 및 Docker Hub로 푸시
                     docker.withRegistry('https://registry.hub.docker.com', 'arial09') {
-                        app = docker.build("arial09/to-be-mom")
+                        def app = docker.build("arial09/to-be-mom")
+                        app.push("latest")
                     }
+                }
             }
         }
 
         stage('Clean Up Unused Docker Images') {
-                    steps {
-                        script {
-                            // 태그가 겹친 이미지 삭제
-                            sh 'docker rmi -f $(docker images -f "dangling=true" -q) || true'
-                        }
-                    }
-        }
-
-        stage('Push Docker Image') {
-                    steps {
-                        script {
-                            // Docker 이미지를 Docker Hub로 푸시함
-                            docker.withRegistry('https://registry.hub.docker.com', 'arial09') {
-                                myapp.push("latest")
-                                //myapp.push("${env.BUILD_ID}")
-                            }
-                        }
-                    }
+            steps {
+                script {
+                    // 태그가 겹친 이미지 삭제
+                    sh 'docker rmi -f $(docker images -f "dangling=true" -q) || true'
                 }
+            }
+        }
 
         stage('Deploy') {
             steps {
