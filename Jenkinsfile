@@ -16,7 +16,10 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                app = docker.build("arial09/to-be-mom")
+                    def app
+                    docker.withRegistry('https://registry.hub.docker.com', 'arial09') {
+                        app = docker.build("arial09/to-be-mom")
+                    }
             }
         }
 
