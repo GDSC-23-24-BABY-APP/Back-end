@@ -8,7 +8,7 @@
 ## 🙌 Introduction
 Until the 11th week of pregnancy, there is a higher risk of miscarriage, and an increased risk of stillbirth in the later stages. Moreover, 84% of stillbirths occur in low to middle-income countries.
 
-But Actually miscarriage is not solely a challenge of low-income countries. In 2019, in 39 high-income countries, there were more stillbirths than neonatal deaths, and in 15 countries, there were more stillbirths than infant deaths. In some regions, girls are denied access to healthcare or adequate nutrition, contributing to a higher mortality rate. 
+But actually miscarriage is not solely a challenge of low-income countries. In 2019, in 39 high-income countries, there were more stillbirths than neonatal deaths, and in 15 countries, there were more stillbirths than infant deaths. In some regions, girls are denied access to healthcare or adequate nutrition, contributing to a higher mortality rate. 
 
 To address such issues, we have developed a service specifically tailored for pregnant woman to manage their health effectively.
 
