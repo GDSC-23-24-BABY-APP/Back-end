@@ -2,7 +2,9 @@
 ![image](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/63c22d41-a927-41e5-87bc-07681ce62e5e)
 
 ## Target UN-SDGs
-![image](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/4a10365d-d6a3-4ed5-b426-04b761c42cf1)
+<p align = "center">
+<img src = "![image](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/4a10365d-d6a3-4ed5-b426-04b761c42cf1)">
+</p>
 
 
 ## 🙌 Introduction
