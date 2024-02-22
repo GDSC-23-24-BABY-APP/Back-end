@@ -6,11 +6,20 @@
 
 
 ## 🙌 Introduction
-The goal of good health and well-being is challenged in impoverished countries due to a lack of diverse medical services, resulting in people leading unhealthy lives. Missed check-up appointments can lead to diseases and even fatalities. While efforts are underway in the medical field, progress is slow. In such circumstances, individuals can ensure better health check-ups even over extended periods by monitoring their own health status and maintaining a daily record of hard-to-remember conditions.
+Until the 11th week of pregnancy, there is a higher risk of miscarriage, and an increased risk of stillbirth in the later stages. Moreover, 84% of stillbirths occur in low to middle-income countries.
 
-In some regions, girls are denied access to healthcare or adequate nutrition, contributing to a higher mortality rate. To address such issues, we have developed a service specifically tailored for women to manage their health effectively.
+But Actually miscarriage is not solely a challenge of low-income countries. In 2019, in 39 high-income countries, there were more stillbirths than neonatal deaths, and in 15 countries, there were more stillbirths than infant deaths. In some regions, girls are denied access to healthcare or adequate nutrition, contributing to a higher mortality rate. 
 
-The 10th Sustainable Development Goal, Reduced Inequalities, highlights the plight of women who lack access to healthcare and face increased risks during childbirth. Through self-diagnosis and monitoring their physical condition before childbirth, women can effectively manage their health. Moreover, to assist users who may have limitations in reading or writing, we have incorporated features to convert speech to text and text to speech.
+To address such issues, we have developed a service specifically tailored for pregnant woman to manage their health effectively.
+
+The To be Mom app tries to enable individuals to be aware of miscarriage and stillbirth risks themselves and monitor their condition attentively.
+
+This app provides a feature where it calculates the results of health checklists submitted by expectant mothers and allows them to view health analysis reports based on pregnancy weeks. Users can record their daily health-related information in the health record menu. In addition, it offers essential health-related information that expectant mothers must know and enables users to find nearby obstetricians based on their current location.
+
+Moreover, to assist users who may have limitations in reading or writing, we have incorporated features to convert speech to text and text to speech.
+
+## App Demo
+
 
 
 ## Project Architecture
