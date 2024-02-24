@@ -9,12 +9,18 @@ pipeline {
         }
 
         stage("Clone repository") {
+            when {
+                branch 'main'
+            }
             steps {
                 git 'https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc.git'
             }
         }
 
         stage('Build and Push Docker Image') {
+            when {
+                branch 'main'
+            }
             steps {
                 script {
                     // Docker 이미지 빌드 및 Docker Hub로 푸시
@@ -26,16 +32,10 @@ pipeline {
             }
         }
 
-        stage('Clean Up Unused Docker Images') {
-            steps {
-                script {
-                    // 태그가 겹친 이미지 삭제
-                    sh 'docker rmi -f $(docker images -f "dangling=true" -q) || true'
-                }
-            }
-        }
-
         stage('Deploy') {
+            when {
+                branch 'main'
+            }
             steps {
                 echo '=== Deploy ==='
             }
