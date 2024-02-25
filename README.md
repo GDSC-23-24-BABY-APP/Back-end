@@ -13,9 +13,9 @@ To address such issues, we have developed a service specifically tailored for pr
 
 The To be Mom app tries to enable individuals to be aware of miscarriage and stillbirth risks themselves and monitor their condition attentively.
 
-This app provides a feature where it calculates the results of health checklists submitted by expectant mothers and allows them to <u> view health analysis reports based on pregnancy weeks.</u> Users can record their daily health-related information in the health record menu. In addition, it offers essential health-related information that expectant mothers must know and enables users to find nearby obstetricians based on their current location. And through the chatbot feature utilizing Google's Gemini API, users can inquire about pregnancy-related information and receive appropriate responses.
+✅ This app provides a feature where it calculates the results of health checklists submitted by expectant mothers and allows them to <u> view health analysis reports based on pregnancy weeks.</u> Users can record their daily health-related information in the health record menu. In addition, ✅ it offers essential health-related information that expectant mothers must know and ✅ enables users to find nearby obstetricians based on their current location. ✅ And through the chatbot feature utilizing Google's Gemini API, users can inquire about pregnancy-related information and receive appropriate responses.
 
-Moreover, to assist users who may have limitations in reading or writing, we have incorporated features to convert speech to text and text to speech. (We used google's text-to-speech API and speech-to-text API)
+☑ Moreover, to assist users who may have limitations in reading or writing, we have incorporated features to convert speech to text and text to speech. (We used google's text-to-speech API and speech-to-text API)
 
 ## 🔎 App Demo
 
