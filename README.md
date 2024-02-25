@@ -50,6 +50,13 @@ To run the app you need to have an online emulator or a plugged device and run t
 
 ## 🔎 App Demo
 
+### Sign Up
+You can store information about both mother and baby through signing up and gain access to the app.
+
+### Login
+![TOBEMOM_Login](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/blob/main/TOBEMOM_Login.gif)
+By logging in, you can access health records and other content personalized for each user. We've made logging in easy with a Google Social Login button.
+
 ### ✅ Solution1 - Daily Health Checklist & Health Record
 ![Checklist-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/d1b2f731-d58d-4061-a9de-102c52998bea)
 
@@ -75,6 +82,7 @@ Review past records on the calendar.
 
 ### ✅ Solution2 - Dr.Gemini
 ![Chat-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1a4e6d9f-393e-4b85-bbf1-f874e15c8dd4)
+You can inquire about or consult on various topics through Dr. Gemini. Mothers can gain more detailed insights into pregnancy, miscarriage, and stillbirth through Dr. Gemini.
 
 ### ✅ Solution3 - Pregnancy Care Tips
 ![KakaoTalk_20240222_211559577-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/cb8d7bfc-5895-4fd8-827f-5f355ea8fe25)
