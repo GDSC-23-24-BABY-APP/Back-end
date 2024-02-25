@@ -19,6 +19,33 @@ The To be Mom app tries to enable individuals to be aware of miscarriage and sti
 
 <br>
 
+## 📍How To Start
+1) Prerequisites
+   To run any Android application built with Kotlin, you need to configure the environment on your machine. You can follow the tutorial provided by Google on the Kotlin website.
+Requirements:
+	•	Kotlin SDK
+	•	Android Studio (to download Android SDK)
+	•	Xcode (for iOS development only)
+	•	Any IDE with Kotlin SDK installed (e.g., IntelliJ, Android Studio, VSCode, etc.)
+	•	A little knowledge of Kotlin and Android development
+
+2) Clone
+Clone this repo to your local machine using:
+
+git clone https://github.com/GDSC-23-24-BABY-APP/front-end.git
+
+3) Setup
+Set your own Google Map Key in front-end/app/java/HospitalMap.kt and res/AndroidManifest.xml :
+
+Places.initialize(requireContext(), "YOUR_GOOGLE_MAP_KEY")
+android:value="YOUR_GOOGLE_MAP_KEY"
+
+Set your own Gemini Key in front-end/app/java/ChatFragment.kt : 
+
+apiKey = "YOUR_GEMINI_KEY"
+
+To run the app you need to have an online emulator or a plugged device and run the following command in the root of the application.
+
 ## 🔎 App Demo
 
 ### ✅ Solution1 - Daily Health Checklist & Health Record
