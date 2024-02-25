@@ -37,7 +37,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-                echo '=== Deploy ==='
+                echo '==== Deploy ===='
             }
         }
     }
