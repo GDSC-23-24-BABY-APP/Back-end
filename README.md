@@ -2,7 +2,7 @@
 ![image](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/63c22d41-a927-41e5-87bc-07681ce62e5e)
 
 ## 🎯 Target UN-SDGs
-![image](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/4a10365d-d6a3-4ed5-b426-04b761c42cf1)
+![Group 15 (1)](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/3f8a7ff8-7d22-4f73-ae88-56cc1c2be08e)
 
 ## 🙌 Introduction
 Until the 11th week of pregnancy, there is a higher risk of miscarriage, and an increased risk of stillbirth in the later stages. Moreover, 84% of stillbirths occur in low to middle-income countries.
@@ -13,18 +13,22 @@ To address such issues, we have developed a service specifically tailored for pr
 
 The To be Mom app tries to enable individuals to be aware of miscarriage and stillbirth risks themselves and monitor their condition attentively.
 
-This app provides a feature where it calculates the results of health checklists submitted by expectant mothers and allows them to view health analysis reports based on pregnancy weeks. Users can record their daily health-related information in the health record menu. In addition, it offers essential health-related information that expectant mothers must know and enables users to find nearby obstetricians based on their current location. And through the chatbot feature utilizing Google's Gemini API, users can inquire about pregnancy-related information and receive appropriate responses.
+This app provides a feature where it calculates the results of health checklists submitted by expectant mothers and allows them to <u> view health analysis reports based on pregnancy weeks.</u> Users can record their daily health-related information in the health record menu. In addition, it offers essential health-related information that expectant mothers must know and enables users to find nearby obstetricians based on their current location. And through the chatbot feature utilizing Google's Gemini API, users can inquire about pregnancy-related information and receive appropriate responses.
 
-Moreover, to assist users who may have limitations in reading or writing, we have incorporated features to convert speech to text and text to speech.
+Moreover, to assist users who may have limitations in reading or writing, we have incorporated features to convert speech to text and text to speech. (We used google's text-to-speech API and speech-to-text API)
 
 ## 🔎 App Demo
 
-![Chat-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1a4e6d9f-393e-4b85-bbf1-f874e15c8dd4)
-
+🍀 Solution1 - Health Checklist
 ![Checklist-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/d1b2f731-d58d-4061-a9de-102c52998bea)
 
-![KakaoTalk_20240222_211559577-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/cb8d7bfc-5895-4fd8-827f-5f355ea8fe25)
+🍀 Solution2 - Dr.Gemini
+![Chat-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1a4e6d9f-393e-4b85-bbf1-f874e15c8dd4)
 
+🍀 Solution3 - Pregnancy Care Tips
+![Checklist-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/d1b2f731-d58d-4061-a9de-102c52998bea)
+
+🍀 Solution4 - Find nearby Obstetricians
 ![KakaoTalk_20240222_212132252-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1d3ba334-c3b4-459f-a1fd-20af23d83afc)
 
 
