@@ -39,6 +39,7 @@ Clone this repo to your local machine using:
 Set your own Google Map Key in front-end/app/java/HospitalMap.kt and res/AndroidManifest.xml :
 
     Places.initialize(requireContext(), "YOUR_GOOGLE_MAP_KEY")
+    
     android:value="YOUR_GOOGLE_MAP_KEY"
 
 Set your own Gemini Key in front-end/app/java/ChatFragment.kt : 
@@ -51,20 +52,25 @@ To run the app you need to have an online emulator or a plugged device and run t
 
 ### ✅ Solution1 - Daily Health Checklist & Health Record
 ![Checklist-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/d1b2f731-d58d-4061-a9de-102c52998bea)
+
 #### Check Pregnant women health
 Users can prevent miscarriage and stillbirth by going through a daily checklist.
 The questions on the checklist will be change according to the week of pregnancy. By conducting self-diagnosis and checking their physical condition immediately before childbirth, women can manage their health effectively. 
 
 **Step 1**
+
 Do the checklist every day.
 
 **Step 2**
+
 Get a information about risk conditions of miscarriage and stillbirth, and overall health status.
 
 **Step 3**
+
 Record daily weight, health status, and emotional diary.
 
 **Step 4**
+
 Review past records on the calendar. 
 
 ### ✅ Solution2 - Dr.Gemini
@@ -73,14 +79,18 @@ Review past records on the calendar.
 ### ✅ Solution3 - Pregnancy Care Tips
 ![Checklist-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/d1b2f731-d58d-4061-a9de-102c52998bea)
 
+
 #### Get information about overall pregnancy
+
 We provide pregnancy-related information, including weekly baby development, pregnancy tips, and FAQ.
 For countries with high illiteracy rates, we provide a text-to-speech feature. By clicking on the volume icon on each page, you can utilize the functionality to have the information read aloud.For countries with high illiteracy rates, we provide a text-to-speech feature. By clicking on the volume icon on each page,users can utilize the functionality to have the information read aloud.
 
 ### ✅ Solution4 - Find nearby Obstetricians
-![KakaoTalk_20240222_212132252-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1d3ba334-c3b4-459f-a1fd-20af23d83afc)
 
 If an expectant mother is in an urgent situation or wants to find nearby obstetrics and gynecology clinics, she can navigate to the 'Nearby Hospital' page. Through Google Maps, she can locate nearby obstetrics and gynecology clinics from her current location.
+
+![KakaoTalk_20240222_212132252-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1d3ba334-c3b4-459f-a1fd-20af23d83afc)
+
 
 <br>
 
