@@ -17,6 +17,8 @@ The To be Mom app tries to enable individuals to be aware of miscarriage and sti
 
 ☑ Moreover, to assist users who may have limitations in reading or writing, we have incorporated features to convert speech to text and text to speech. (We used google's text-to-speech API and speech-to-text API)
 
+<br>
+
 ## 🔎 App Demo
 
 ### 🍀 Solution1 - Daily Health Checklist & Health Record
@@ -31,23 +33,27 @@ The To be Mom app tries to enable individuals to be aware of miscarriage and sti
 ### 🍀 Solution4 - Find nearby Obstetricians
 ![KakaoTalk_20240222_212132252-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1d3ba334-c3b4-459f-a1fd-20af23d83afc)
 
+<br>
+
 
 
 
 ## 🏛 Project Architecture
 
 ![Group 14 (2)](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/33b37b9e-3a18-44db-a445-5bc9b2b82c01)
+<br>
 
 
 ## 🔧 Tech Stacks
 
 ![Group 13](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/68597a23-5f28-4c34-bea8-4dfcb67c125d)
+<br>
 
 
 ## ERD
 
 ![image](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/0ca1e8e0-b0c9-4eea-a333-37483be35a57)
-
+<br>
 
 
 ## Member
