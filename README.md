@@ -21,16 +21,16 @@ The To be Mom app tries to enable individuals to be aware of miscarriage and sti
 
 ## 🔎 App Demo
 
-### 🍀 Solution1 - Daily Health Checklist & Health Record
+### ✅ Solution1 - Daily Health Checklist & Health Record
 ![Checklist-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/d1b2f731-d58d-4061-a9de-102c52998bea)
 
-### 🍀 Solution2 - Dr.Gemini
+### ✅ Solution2 - Dr.Gemini
 ![Chat-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1a4e6d9f-393e-4b85-bbf1-f874e15c8dd4)
 
-### 🍀 Solution3 - Pregnancy Care Tips
+### ✅ Solution3 - Pregnancy Care Tips
 ![Checklist-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/d1b2f731-d58d-4061-a9de-102c52998bea)
 
-### 🍀 Solution4 - Find nearby Obstetricians
+### ✅ Solution4 - Find nearby Obstetricians
 ![KakaoTalk_20240222_212132252-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1d3ba334-c3b4-459f-a1fd-20af23d83afc)
 
 <br>
