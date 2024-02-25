@@ -77,7 +77,7 @@ Review past records on the calendar.
 ![Chat-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/1a4e6d9f-393e-4b85-bbf1-f874e15c8dd4)
 
 ### ✅ Solution3 - Pregnancy Care Tips
-![Checklist-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/d1b2f731-d58d-4061-a9de-102c52998bea)
+![KakaoTalk_20240222_211559577-ezgif com-video-to-gif-converter](https://github.com/GDSC-23-24-BABY-APP/tobemom-spring-mvc/assets/80439068/cb8d7bfc-5895-4fd8-827f-5f355ea8fe25)
 
 
 #### Get information about overall pregnancy
